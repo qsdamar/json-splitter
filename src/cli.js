@@ -28,6 +28,11 @@ const splittedNames = Object.keys(fileToSplit);
 
 const exportDir = `public/localess/${options?.language || "en"}`;
 
+// CHECK IF EXPORT FOLDER EXISTS
+if (!fs.existsSync(exportDir)) {
+  fs.mkdirSync(exportDir);
+}
+
 for (let i = 0; i < splittedNames.length; i++) {
   const key = splittedNames[i];
   const fileContent = {
@@ -37,11 +42,6 @@ for (let i = 0; i < splittedNames.length; i++) {
   const fileName = path.resolve(exportDir, `${key}.json`);
 
   try {
-    // CHECK IF EXPORT FOLDER EXISTS
-    if (!fs.existsSync(exportDir)) {
-      fs.mkdirSync(exportDir);
-    }
-
     fs.writeFileSync(fileName, JSON.stringify(fileContent));
   } catch (err) {
     console.error(err);
