@@ -37,6 +37,11 @@ for (let i = 0; i < splittedNames.length; i++) {
   const fileName = path.resolve(exportDir, `${key}.json`);
 
   try {
+    // CHECK IF EXPORT FOLDER EXISTS
+    if (!fs.existsSync(exportDir)) {
+      fs.mkdirSync(exportDir);
+    }
+
     fs.writeFileSync(fileName, JSON.stringify(fileContent));
   } catch (err) {
     console.error(err);
