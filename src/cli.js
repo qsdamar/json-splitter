@@ -28,7 +28,7 @@ const exportDir = `${dirname}/export`;
 for (let i = 0; i < splittedNames.length; i++) {
   const key = splittedNames[i];
   const fileContent = {
-    [key]: obj[key],
+    [key]: fileToSplit[key],
   };
 
   const fileName = path.resolve(exportDir, `${key}.json`);
