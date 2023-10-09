@@ -1,71 +1,49 @@
-const fs = require("fs");
-const yargs = require("yargs");
-const path = require("path");
+const fs = require('fs')
+const yargs = require('yargs')
+const path = require('path')
 
 // Define command line arguments
 const options = yargs
-  .usage("Usage: -f <file> -l <language>")
-  .option("f", {
-    alias: "file",
-    describe: "Path to JSON file",
-    type: "string",
+  .usage('Usage: --f <file> --lg <language>')
+  .option('f', {
+    alias: 'file',
+    describe: 'Path to JSON file',
+    type: 'string',
     demandOption: true,
   })
-  .option("l", {
-    alias: "language",
-    default: "en",
-    describe: "Language of a splitting file (Default: en)",
-    type: "string",
-  }).argv;
+  .option('lg', {
+    alias: 'language',
+    default: 'en',
+    describe: 'Language of a splitting file (Default: en)',
+    type: 'string',
+  }).argv
 
-const filename = path.resolve(options.file);
-const fileToSplit = require(filename);
+const filename = path.resolve(options.file)
+const fileToSplit = require(filename)
 
-const splittedNames = Object.keys(fileToSplit);
+const splittedNames = Object.keys(fileToSplit) // e.g. ["about", "album", "user"]
+const language = options.language || 'en'
+const exportDir = `public/locales/${language}`
 
-// const dirname = path.dirname(options.file);
-// const exportDir = `${dirname}/export`;
-
-const exportDir = `public/localess/${options?.language || "en"}`;
-
-// CHECK IF EXPORT FOLDER EXISTS
+// check if export folder exists
 if (!fs.existsSync(exportDir)) {
-  fs.mkdirSync(exportDir);
+  fs.mkdirSync(exportDir, { recursive: true })
 }
 
-for (let i = 0; i < splittedNames.length; i++) {
-  const key = splittedNames[i];
-  const fileContent = {
-    [key]: fileToSplit[key],
-  };
+let filesCreatedCount = 0
 
-  const fileName = path.resolve(exportDir, `${key}.json`);
+for (let i = 0; i < splittedNames.length; i++) {
+  const key = splittedNames[i]
+  const fileContent = { [key]: fileToSplit[key] }
+
+  const fileName = path.resolve(exportDir, `${key}.json`)
 
   try {
-    fs.writeFileSync(fileName, JSON.stringify(fileContent));
+    fs.writeFileSync(fileName, JSON.stringify(fileContent))
+    ++filesCreatedCount
   } catch (err) {
-    console.error(err);
+    console.error(err)
   }
 }
 
-// const dirname = path.dirname(options.file);
-// const baseName = path.basename(options.file, ".json");
-// const exportDir = `${dirname}/export`;
-// const exportName = options.name || baseName;
-
-// // CHECK IF EXPORT FOLDER EXISTS
-// if (!fs.existsSync(exportDir)) {
-//   fs.mkdirSync(exportDir);
-// }
-
-// files.forEach((slice, index) => {
-//   const filename = path.resolve(exportDir, `${exportName}-${index}.json`);
-
-//   try {
-//     fs.writeFileSync(filename, JSON.stringify(slice));
-//   } catch (err) {
-//     console.error(err);
-//   }
-
-//   console.log(filename);
-// });
+console.log(`Created ${filesCreatedCount} files for \`${language}\` language.`)
