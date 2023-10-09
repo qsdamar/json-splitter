@@ -4,26 +4,28 @@ const path = require("path");
 
 // Define command line arguments
 const options = yargs
-  .usage("Usage: -f <file> -o <output>")
+  .usage("Usage: -f <file> -lg <language>")
   .option("f", {
     alias: "file",
     describe: "Path to JSON file.",
     type: "string",
     demandOption: true,
   })
-  .option("o", {
-    alias: "name",
-    describe: "Preferred output name (Default: Same as file)",
+  .option("lg", {
+    alias: "language",
+    describe: "Language of a splitting file (Default: en)",
     type: "string",
-  }).argv;
+  });
 
 const filename = path.resolve(options.file);
 const fileToSplit = require(filename);
 
 const splittedNames = Object.keys(fileToSplit);
 
-const dirname = path.dirname(options.file);
-const exportDir = `${dirname}/export`;
+// const dirname = path.dirname(options.file);
+// const exportDir = `${dirname}/export`;
+
+const exportDir = `public/localess/${options?.language || "en"}`;
 
 for (let i = 0; i < splittedNames.length; i++) {
   const key = splittedNames[i];
