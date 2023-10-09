@@ -7,7 +7,7 @@ const options = yargs
   .usage("Usage: -f <file> -lg <language>")
   .option("f", {
     alias: "file",
-    describe: "Path to JSON file.",
+    describe: "Path to JSON file",
     type: "string",
     demandOption: true,
   })
@@ -15,6 +15,7 @@ const options = yargs
     alias: "language",
     describe: "Language of a splitting file (Default: en)",
     type: "string",
+    demandOption: true,
   });
 
 const filename = path.resolve(options.file);
