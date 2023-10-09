@@ -13,10 +13,10 @@ const options = yargs
   })
   .option("l", {
     alias: "language",
+    default: "en",
     describe: "Language of a splitting file (Default: en)",
     type: "string",
-    demandOption: true,
-  });
+  }).argv;
 
 const filename = path.resolve(options.file);
 const fileToSplit = require(filename);
