@@ -4,14 +4,14 @@ const path = require("path");
 
 // Define command line arguments
 const options = yargs
-  .usage("Usage: -f <file> -lg <language>")
+  .usage("Usage: -f <file> -l <language>")
   .option("f", {
     alias: "file",
     describe: "Path to JSON file",
     type: "string",
     demandOption: true,
   })
-  .option("lg", {
+  .option("l", {
     alias: "language",
     describe: "Language of a splitting file (Default: en)",
     type: "string",
