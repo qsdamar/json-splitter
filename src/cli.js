@@ -39,10 +39,7 @@ for (let i = 0; i < splittedNames.length; i++) {
   const fileName = path.resolve(exportDir, `${key}.json`);
 
   try {
-    fs.writeFileSync(
-      fileName,
-      JSON.stringify(fileContent, { maxLength: 120, indent: 2 })
-    );
+    fs.writeFileSync(fileName, JSON.stringify(fileContent, null, "\t"));
     ++filesCreatedCount;
   } catch (err) {
     console.error(err);
