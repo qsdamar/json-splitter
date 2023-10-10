@@ -1,7 +1,7 @@
 {
-  "name": "@pixelygroup/json-splitter",
-  "version": "1.3.6",
-  "description": "Splits json file based on size limit",
+  "name": "@qsdamar/json-splitter",
+  "version": "1.0.0",
+  "description": "Splits JSON file based on children's objects",
   "main": "bin/index.js",
   "scripts": {
     "lint": "eslint .",
@@ -16,7 +16,7 @@
     "splitter",
     "pixely group"
   ],
-  "author": "Lubos Krystynek",
+  "author": "Amar QSD",
   "license": "MIT",
   "devDependencies": {
     "@pixelygroup/eslint-config-px": "^0.1.2",
@@ -35,9 +35,9 @@
   },
   "repository": "github:pixelygroup/json-splitter.git",
   "bugs": {
-    "url": "https://github.com/pixelygroup/json-splitter/issues"
+    "url": "https://github.com/qsdamar/json-splitter/issues"
   },
-  "homepage": "https://github.com/pixelygroup/json-splitter#readme",
+  "homepage": "https://github.com/qsdamar/json-splitter#readme",
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"

@@ -1,5 +1,5 @@
 # json-splitter
-This small tool splits `import.json` into smaller files according to its children's objects.
+This small tool splits `import.json` into smaller files based on the first children's objects.
 
 **CLI Usage**
 ```
