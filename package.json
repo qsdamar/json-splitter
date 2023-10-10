@@ -30,7 +30,7 @@
   },
   "repository": "github:qsdamar/json-splitter.git",
   "bugs": {
-    "url": "https://github.com/qsdamar/json-splitter/issues"
+    "url": "https://github.com/pixelygroup/json-splitter/issues"
   },
   "homepage": "https://github.com/qsdamar/json-splitter#readme",
   "husky": {
