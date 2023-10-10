@@ -13,17 +13,12 @@
   },
   "keywords": [
     "json",
-    "splitter",
-    "pixely group"
+    "splitter"
   ],
   "author": "Amar QSD",
   "license": "MIT",
   "devDependencies": {
-    "@pixelygroup/eslint-config-px": "^0.1.2",
-    "@pixelygroup/version-x": "^0.2.0",
-    "eslint": "^7.11.0",
-    "eslint-plugin-jsdoc": "^30.7.3",
-    "eslint-plugin-node": "^11.1.0",
+    "eslint": "^7.32.0",
     "husky": "^3.0.8",
     "lint-staged": "^9.4.1"
   },
@@ -33,7 +28,7 @@
   "dependencies": {
     "yargs": "^16.1.0"
   },
-  "repository": "github:pixelygroup/json-splitter.git",
+  "repository": "github:qsdamar/json-splitter.git",
   "bugs": {
     "url": "https://github.com/qsdamar/json-splitter/issues"
   },

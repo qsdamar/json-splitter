@@ -1,5 +1,0 @@
-{
-    "extends": [
-        "@pixelygroup/eslint-config-px/all/node"
-    ]
-}

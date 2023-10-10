@@ -1,6 +1,4 @@
 {
-  "cSpell.words": [
-    "Krystynek",
-    "Lubos"
-  ]
+  "cSpell.words": ["Krystynek", "Lubos"],
+  "eslint.options": { "configFile": ".eslintrc.json" }
 }
